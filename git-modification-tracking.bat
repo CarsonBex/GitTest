@@ -1,10 +1,19 @@
 @echo off
 
-echo STEP 1: Fetching remote updates ..
-git fetch --all
+REM Get the path to the user's Downloads folder
+set "downloads=%USERPROFILE%\Downloads"
+set "logfile=%downloads%\git_version_output.txt"
 
-echo.
-echo STEP 2: Showing full commit history across all branches, listing usernames and emails..
-git log --all --pretty=format:"%h %an <%ae> %s"
+REM STEP 1: Fetch remote updates
+echo STEP 1: Fetching remote updates .. > "%logfile%"
+git fetch --all >> "%logfile%"
+echo. >> "%logfile%"
+echo. >> "%logfile%"
 
-pause
+REM STEP 2: Show full commit history across all branches
+echo STEP 2: Showing full commit history across all branches, listing usernames and emails.. >> "%logfile%"
+echo. >> "%logfile%"
+git log --all --pretty=format:"%%h %%an <%%ae> %%s" >> "%logfile%"
+
+REM Automatically open the file in Notepad
+notepad "%logfile%"
