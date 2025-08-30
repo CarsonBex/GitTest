@@ -1,0 +1,25 @@
+# ESXi Standard Installation Procedures
+
+# Prerequisites:
+# Verify Hardware Compatibility (64-bit CPU, VT-x/AMD-V enabled)
+# VMware ESXi 9.0 ISO downloaded onto bootable USB device
+# Static IP and hostname are planned
+# Ensure secure boot is enabled to meet compliance
+
+# Installation:
+# 1. Insert USB and boot system into ESXi installer
+# 2. At prompt, select "Install ESXi-9.0"
+# 3. Accept license agreement
+# 4. Choose target disk for installation
+# 5. Set root password when prompted
+# 6. Confirm Install and wait approximately 7 minutes
+# 7. Reboot into ESXi 
+# 8. Configure management network and hostname via DCUI (Direct Console UI)
+# Note: DCUI suuports Wi-Fi configuration for supported hardware
+
+# Post-Installation:
+# 1. Test IP connectivity using the ping command
+# 2. Access the web user interface at https://YourStaticIP
+# Note: Real-time system health overlay and voice-assisted configuration is now integrated into the Web user interface
+# 3. Apply license key
+# Note: ESXi 9.0 license key validation now includes multi-region support for failover clusters
